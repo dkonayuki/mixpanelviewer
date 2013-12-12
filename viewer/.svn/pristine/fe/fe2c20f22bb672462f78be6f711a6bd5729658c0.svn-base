@@ -1,0 +1,18 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.Runtime.Serialization;
+
+namespace MixPanelViewer
+{
+    [DataContract]
+    class Report
+    {
+        [DataMember(Name = "event", IsRequired = false)]
+        public string Event { get; set; }
+        [DataMember(Name = "properties", IsRequired = false)]
+        public IDictionary<string, object> Properties { get; set; }
+    }
+}

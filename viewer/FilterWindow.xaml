@@ -1,0 +1,33 @@
+﻿<Window x:Class="MixPanelViewer.FilterWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Add a Filter" Height="130" Width="400" ResizeMode="NoResize"
+         WindowStartupLocation="CenterScreen"
+        Icon="/MixPanelGetter;component/Assets/mixpanelviewer.ico">
+    <Grid>
+        <StackPanel x:Name="filter_Panel">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition Width="80"></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <StackPanel Orientation="Vertical" Grid.Column="0">
+                    <Label Content="Key"/>
+                    <ComboBox x:Name="box_Properties" Margin="5" IsTextSearchEnabled="True" IsEditable="True" KeyUp="onPropertyChanged" GotKeyboardFocus="onPropertyKeyboardFocus"
+                      SelectionChanged="onOperationChanged"></ComboBox>
+                </StackPanel>
+                <ComboBox x:Name="box_Operations" Grid.Column="1" Height="20" VerticalAlignment="Bottom" Margin="5" Width="40" SelectionChanged="onOperationChanged"></ComboBox>
+                <StackPanel Orientation="Vertical" Grid.Column="2">
+                    <Label Content="Value"/>
+                    <TextBox x:Name="txt_Value" Margin="5" TextChanged="onValueChanged"></TextBox>
+                </StackPanel> 
+            </Grid>
+            
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Button x:Name="btn_OK" IsEnabled="{Binding Path=IsValidated}" Width="60" Margin="5,5,20,5" Click="onOkClick" IsDefault="True">OK</Button>
+                <Button x:Name="btn_Cancel"  Width="60" Margin="20,5,5,5" Click="onCancelClick" IsCancel="True">Cancel</Button>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Window>
